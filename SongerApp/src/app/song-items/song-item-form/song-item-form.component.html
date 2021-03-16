@@ -1,0 +1,32 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="songId" [value]="service.formData.songId" />
+    <div class="form-group">
+        <label>SONG TITLE</label>
+        <input class="form-control form-control-lg" placeholder="Title" name="songTitle"
+        #songTitle="ngModel" [(ngModel)]="service.formData.songTitle"
+        required maxlength="50" minlength="1" [class.invalid]="songTitle.invalid && songTitle.touched">
+    </div>
+    <div class="form-group">
+        <label>ARTIST</label>
+        <input class="form-control form-control-lg" placeholder="Singer/Band" name="songArtist"
+        #songArtist="ngModel" [(ngModel)]="service.formData.songArtist"
+        required maxlength="50" minlength="1" [class.invalid]="songArtist.invalid && songArtist.touched">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>ORIGINAL KEY</label>
+            <input class="form-control form-control-lg" placeholder="Key" name="songKey"
+                #songKey="ngModel" [(ngModel)]="service.formData.songKey"
+                required maxlength="3" minlength="1" [class.invalid]="songKey.invalid && songKey.touched">
+        </div>
+        <div class="form-group col-md-6">
+            <label>BPM</label>
+            <input class="form-control form-control-lg" placeholder="Bpm" name="songBpm"
+                #songBpm="ngModel" [(ngModel)]="service.formData.songBpm"
+                required maxlength="3" minlength="2" [class.invalid]="songBpm.invalid && songBpm.touched">
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div>
+</form>

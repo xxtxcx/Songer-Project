@@ -1,0 +1,38 @@
+<div class="jumbotron py-3">
+    <h1 class="display-4 text-center">The <b>Songer</b>list</h1>
+    <h2 class="display-6 text-center">Add new one</h2>
+    <hr />
+    <div class="raz">
+        <div>Search by title: <input type="text" [(ngModel)]="title" (input)=Search()/></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <app-song-item-form></app-song-item-form>
+    </div>
+    <div class="col-md-9">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Key</th>
+                    <th>Bpm</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let s of service.list">
+                    <td (click)="populateForm(s)"><b>{{s.songTitle}}</b></td>
+                    <td (click)="populateForm(s)"><em>{{s.songArtist}}</em></td>
+                    <td (click)="populateForm(s)">{{s.songKey}}</td>
+                    <td (click)="populateForm(s)">{{s.songBpm}}</td>
+                    <td>
+                        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(s.songId)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
