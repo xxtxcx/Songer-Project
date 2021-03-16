@@ -12,3 +12,6 @@ Implemented here:
 - Display records from Web API
 - Update Operation
 - Delete Operation
+=================================================
+The SongerAPI and SongerApp folders contain the API part and the Web part, respectively.
+In the Screenshots folder, there are several examples of using this application.
